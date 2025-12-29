@@ -2,7 +2,7 @@
 
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark, .dark *));
+@custom-variant dark (&:is(.dark, .dark *));/* Define a custom dark variant for Tailwind CSS */
 
 *{
   font-family: "Manrope", sans-serif;
