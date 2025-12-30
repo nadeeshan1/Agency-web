@@ -1,5 +1,6 @@
 import React from 'react'
 import assets from '../assets/assets'
+import Title from './Title'
 
 const Services = () => {
 
@@ -31,7 +32,7 @@ const Services = () => {
 
         <img src={assets.bgImage2} alt="bgImage2" className='absolute -top-110 -left-70 -z-1 dark:hidden' />
 
-        
+        <Title title='How can we help?' description='From strategy to execution, we craft digital solutions that move your business forward.'/>
 
     </div>
   )
