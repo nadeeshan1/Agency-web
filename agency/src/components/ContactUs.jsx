@@ -1,29 +1,35 @@
-import React, { useState } from "react";
+
 import Title from "./Title";
 import assets from "../assets/assets";
+import toast from "react-hot-toast";
 
 const ContactUs = () => {
 
-    const [result, setResult] = useState("");
+   
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("Sending....");
     const formData = new FormData(event.target);
     formData.append("access_key", "92c9e3fa-78e5-4c25-a442-36b36977a7d0");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
+   try {
+     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: formData
     });
 
     const data = await response.json();
     if (data.success) {
-      setResult("Form Submitted Successfully");
+      
+      toast.success("Form Submitted Successfully");
       event.target.reset();
     } else {
-      setResult("Error");
+      toast.error(data.message || "Something went wrong!");
     }
+    
+   } catch (error) {
+    toast.error(error.message || "Something went wrong!");
+   }
 }
 
   return (
