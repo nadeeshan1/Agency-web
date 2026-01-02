@@ -3,13 +3,18 @@
 import React from 'react'
 import assets from '../assets/assets'
 import ThemeToggleBtn from './ThemeToggleBtn';
+import { motion } from "motion/react"
 
 const Navbar = ({theme,setTheme}) => {
 
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   return (
-    <div className='flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70 '>
+    <motion.div
+    initial={{opacity:0,y:-50}} //Starting state: fully transparent and shifted up by 50 pixels.
+    animate={{opacity:1,y:0}}//End state: fully opaque and in its original position.
+    transition={{duration:0.6,ease:'easeOut'}} //Animation lasts 0.6 seconds with an 'easeOut' easing function.
+     className='flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70 '>
 
         <img src={theme === 'dark' ? assets.logo_dark : assets.logo} className='w-32 sm:w-40' alt="logo"/>
 
@@ -35,7 +40,7 @@ const Navbar = ({theme,setTheme}) => {
         </div>
 
 
-    </div>
+    </motion.div>
   )
 }
 

@@ -68,6 +68,7 @@ const App = () => {
       {/* custom cursor dot */}
       <div ref={dotRef} className='fixed top-0 left-0 w-3 h-3 rounded-full bg-primary pointer-events-none z-[9999]'></div>
 
+
     </div>
   )
 }
